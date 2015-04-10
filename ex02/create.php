@@ -9,7 +9,7 @@ if ($_POST['submit'] === "OK" && $_POST['login'] !== NULL && $_POST['passwd'] !=
 	$passwd_database = unserialize($passwd_file);
 	foreach ($passwd_database as $data)
 	{
-		if ($data['login'] == $_POST['login'])
+		if ($data['login'] === $_POST['login'])
 		{
 			echo "ERROR\n";
 			return ;
