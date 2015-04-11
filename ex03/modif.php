@@ -7,11 +7,11 @@ if ($_POST['login'] !== NULL &&
 	$_POST['newpw'] !== ""   &&
 	$_POST['submit'] === "OK")
 {
-	if (!file_exists("../private/passwd")) {
+	$passwd_file = file_get_contents("../private/passwd");
+	if (!$passwd_file) {
 		echo "ERROR\n";
 		return ;
 	}
-	$passwd_file = file_get_contents("../private/passwd");
 	$passwd_database = unserialize($passwd_file);
 	foreach ($passwd_database as $key => $data)
 	{
